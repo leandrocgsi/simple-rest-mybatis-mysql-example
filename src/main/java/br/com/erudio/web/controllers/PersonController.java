@@ -1,4 +1,4 @@
-/*package br.com.erudio.web.controllers;
+package br.com.erudio.web.controllers;
 
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
 import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
@@ -85,4 +85,3 @@ public class PersonController {
 		person.add(linkTo(methodOn(PersonController.class).get(idPerson)).withSelfRel());
 	}
 }
-*/

@@ -1,4 +1,4 @@
-/*package br.com.erudio.services;
+package br.com.erudio.services;
 
 import java.util.List;
 
@@ -13,4 +13,3 @@ public interface PersonService {
     void delete(Person person);
 
 }
-*/
