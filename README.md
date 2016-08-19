@@ -1,1 +1,1 @@
-# simple-rest-mybatis-mysql-example
+# Simple REST Project With SpringBoot, Mybatis And MySQL
