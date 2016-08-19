@@ -1,4 +1,4 @@
-# simple-rest-mybatis-mysql-example
+# Simple REST Project With SpringBoot, Mybatis And MySQL
 
 [![Build Status](https://travis-ci.org/leandrocgsi/simple-rest-mybatis-mysql-example.svg?branch=master)](https://travis-ci.org/leandrocgsi/simple-rest-mybatis-mysql-example)
 [![Build Status](https://circleci.com/gh/leandrocgsi/simple-rest-mybatis-mysql-example.svg?&style=shield)](https://circleci.com/gh/leandrocgsi/simple-rest-mybatis-mysql-example/)
