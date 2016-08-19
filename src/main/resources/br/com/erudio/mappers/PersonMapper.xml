@@ -1,0 +1,49 @@
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="br.com.erudio.mappers.PersonMapper">
+	
+	<resultMap id="PersonResultMap" type="Person">
+	  	<id column="id"  property="idPerson"  /> 
+	 	<result column="firstName"  property="firstName"  /> 
+	 	<result column="lastName"  property="lastName"  /> 
+	 	<result column="address"  property="address"  /> 	 
+	</resultMap>
+
+	<select id="findAllPersons" resultMap="PersonResultMap">
+		select id, firstName, lastName, address from person
+	</select>
+		
+	<select id="findPersonById" resultMap="PersonResultMap">
+		select id, firstName, lastName, address from person WHERE id=#{id}
+	</select>
+		
+	<insert id="insertPerson" parameterType="Person" useGeneratedKeys="true" keyProperty="id">
+		insert into persons(firstName,
+							lastName,
+							address)
+					values(#{firstName},
+						   #{lastName},
+						   #{address})
+	</insert>
+	
+    <update id="updatePerson" parameterType="Person">
+        update person
+        set
+	        firstName = #{firstName}
+	      , lastName = #{lastName}
+	      , address = #{address}
+        where
+          id = #{idPerson}
+    </update>
+    
+    <delete id="removePerson">
+        delete from 
+			person
+        where
+            id = #{idPerson}
+    </delete>
+	
+</mapper>
+
