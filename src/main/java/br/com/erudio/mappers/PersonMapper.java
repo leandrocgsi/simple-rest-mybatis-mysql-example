@@ -6,10 +6,10 @@ import br.com.erudio.models.Person;
 
 public interface PersonMapper {
 
-	void insertPerson(Person person);
+	Person insertPerson(Person person);
 	Person findPersonById(Integer id);
 	List<Person> findAllPersons();
-	void updatePerson(Person person);
+	Person updatePerson(Person person);
 	void removePerson(Integer idPerson);
 
 }
