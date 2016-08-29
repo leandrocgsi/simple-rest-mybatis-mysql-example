@@ -1,16 +1,14 @@
-/*package br.com.erudio.services.implementations;
+package br.com.erudio.services.implementations;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
-import javax.persistence.Query;
-
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import br.com.erudio.mappers.PersonMapper;
 import br.com.erudio.models.Person;
 import br.com.erudio.services.PersonService;
 
@@ -19,15 +17,14 @@ public class PersonServiceImpl implements PersonService {
 	
 	private static final Logger logger = Logger.getLogger(PersonServiceImpl.class);
 	
-    @PersistenceContext
-    protected EntityManager entityManager;
+	@Autowired private PersonMapper personMapper;
     
     @Override
     @Transactional
     public Person create(Person person) {
     	try {
     		logger.info("Creating a person");
-			person = entityManager.merge(person);
+			person = personMapper.insertPerson(person);
 		} catch (Exception e) {
 			logger.error(e);
 		}
@@ -40,7 +37,7 @@ public class PersonServiceImpl implements PersonService {
     	Person person = new Person();
 		try {
     		logger.info("Finding all persons");
-    		person = entityManager.find(Person.class, Long.parseLong(personId));
+    		person = personMapper.findPersonById(Integer.valueOf(personId));
 		} catch (Exception e) {
 			logger.error(e);
 		}
@@ -53,8 +50,7 @@ public class PersonServiceImpl implements PersonService {
         ArrayList<Person> persons = new ArrayList<>();
     	try {
     		logger.info("Finding all persons");
-            Query query = entityManager.createQuery("from Person p");
-            persons = (ArrayList<Person>) query.getResultList();
+            persons = (ArrayList<Person>) personMapper.findAllPersons();
 		} catch (Exception e) {
 			logger.error(e);
 		}
@@ -66,7 +62,7 @@ public class PersonServiceImpl implements PersonService {
     public Person update(Person person) {
     	try {
     		logger.info("Updating a person");
-			person = entityManager.merge(person);
+			person = personMapper.updatePerson(person);
 		} catch (Exception e) {
 			logger.error(e);
 		}
@@ -78,10 +74,9 @@ public class PersonServiceImpl implements PersonService {
     public void delete(Person person) {
 		try {
 			logger.info("Deleting a person");
-			entityManager.remove(person);
+			personMapper.removePerson(person.getIdPerson().intValue());
 		} catch (Exception ex) {
 			logger.error(ex);
 		}
     }
 }
-*/
