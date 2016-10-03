@@ -8,7 +8,7 @@ This is a simple REST CRUD with  SpringBoot, Mybatis, MySQL And FlyWay
 # Involved Technologies
 
 * SpringBoot
-* MyBatis
+* [MyBatis](http://www.mybatis.org/mybatis-3/)
 * MySQL
 * FlyWay
 
