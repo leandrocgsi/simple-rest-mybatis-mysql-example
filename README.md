@@ -9,7 +9,7 @@ This is a simple REST CRUD with  SpringBoot, Mybatis, MySQL And FlyWay
 
 * SpringBoot
 * [MyBatis](http://www.mybatis.org/mybatis-3/)
-* MySQL
+* [MySQL](https://www.mysql.com/)
 * [FlyWay](https://flywaydb.org/)
 
 # How to get this project
